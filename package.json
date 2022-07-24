@@ -1,0 +1,23 @@
+{
+  "name": "t03_book_club_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C5-HussamAlkhalaileh/T03_Book_Club_App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C5-HussamAlkhalaileh/T03_Book_Club_App/issues"
+  },
+  "homepage": "https://github.com/C5-HussamAlkhalaileh/T03_Book_Club_App#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
