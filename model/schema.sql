@@ -2,11 +2,17 @@
 
 
 USE BooksAPP ;
+
+
 CREATE TABLE role (
     role_id INT AUTO_INCREMENT NOT NULL,
     role VARCHAR(255) UNIQUE NOT NULL,
     PRIMARY KEY (role_id)
 );
+
+
+
+------------------------------
 
 CREATE TABLE permission (
     permission_id INT AUTO_INCREMENT NOT NULL,
@@ -14,12 +20,15 @@ CREATE TABLE permission (
     PRIMARY KEY (permission_id)
 );
 
+
+
+-------------------------------
 CREATE TABLE role_permission (
     role_permission INT AUTO_INCREMENT NOT NULL,
     role INT,
     permission INT,
     FOREIGN KEY (role) REFERENCES role(role_id),
-    FOREIGN KEY (permission) REFERENCES permission(permission_id)
+    FOREIGN KEY (role_permission) REFERENCES permission(permission_id)
     
 );
 
@@ -38,13 +47,14 @@ CREATE TABLE book (
     PRIMARY KEY (book_id)
 );
 
+
 CREATE TABLE room (
     room_id INT AUTO_INCREMENT NOT NULL,
     room VARCHAR (255) NOT NULL ,
     books_id INT ,
     user_id INT,
-    FOREIGN KEY (book) REFERENCES book(book_id),
-    FOREIGN KEY (user) REFERENCES user(user_id),
+    FOREIGN KEY (books_id) REFERENCES book(book_id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
         
     PRIMARY KEY (room_id)
 );
