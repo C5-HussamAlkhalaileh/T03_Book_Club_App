@@ -1,96 +1,74 @@
+USE booklibrary;
 
-
-------------------------------
-
-USE BooksAPP ;
-------------------------------
-
-
-------------------------------
-CREATE TABLE role (
-    role_id INT AUTO_INCREMENT NOT NULL,
+-----------------roles--------------------
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT NOT NULL,
     role VARCHAR(255) UNIQUE NOT NULL,
-    PRIMARY KEY (role_id)
+    PRIMARY KEY (id)
 );
-------------------------------
-
-
-
-------------------------------
-CREATE TABLE permission (
-    permission_id INT AUTO_INCREMENT NOT NULL,
-    permission VARCHAR(255) UNIQUE NOT NULL,
-    PRIMARY KEY (permission_id)
+-------------permissions------------------
+------------------------------------------
+CREATE TABLE permissions (
+    id INT AUTO_INCREMENT  NOT NULL,
+    permission VARCHAR(255) ,
+    PRIMARY KEY (id)
 );
-------------------------------
-
-
-
-
-------------------------------
-CREATE TABLE role_permission (
-    role_permission INT AUTO_INCREMENT NOT NULL,
-    role INT,
-    permission INT,
-    FOREIGN KEY (role) REFERENCES role(role_id),
-    FOREIGN KEY (role_permission) REFERENCES permission(permission_id)
-    
+------------------------------------------
+---------role_permission------------------
+CREATE TABLE role_permission(
+    id INT AUTO_INCREMENT NOT NULL,
+    role_id INT ,
+    permission_id int ,
+    FOREIGN KEY (role_id) REFERENCES roles(id),
+    FOREIGN KEY (permission_id) REFERENCES permissions(id),
+    PRIMARY KEY (id)
 );
-------------------------------
+-----------------------------------------------
 
-CREATE TABLE user (
-    user_id INT AUTO_INCREMENT NOT NULL,
-    first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAR(255) NOT NULL,
-    email VARCHAR (255) NOT NULL,
-    passwordUser VARCHAR (255) NOT NULL,
-    PRIMARY KEY (user_id)
+------------------users------------------------
+CREATE TABLE users (
+    id INT AUTO_INCREMENT  NOT NULL,
+    firstname VARCHAR(255)  ,
+    lastname VARCHAR(255) ,
+    email VARCHAR (255) ,
+    password VARCHAR(255),
+    role_id INT,
+    FOREIGN KEY (role_id) REFERENCES roles(id),
+    PRIMARY KEY (id)
 );
-------------------------------
+-----------------------------------------------
 
-
-------------------------------
-CREATE TABLE book (
-    book_id INT AUTO_INCREMENT NOT NULL,
-    book_name VARCHAR(255) NOT NULL,
-    book_url VARCHAR(255) NOT NULL,
-    PRIMARY KEY (book_id)
+-------------------books-----------------------
+CREATE TABLE books (
+    id INT AUTO_INCREMENT NOT NULL,
+    book VARCHAR(255) ,
+    bookimage VARCHAR(255) ,
+    PRIMARY KEY(id)
 );
-------------------------------
+-------------------rooms-----------------------
 
-------------------------------
-CREATE TABLE room (
-    room_id INT AUTO_INCREMENT NOT NULL,
+
+CREATE TABLE rooms (
+    id INT AUTO_INCREMENT NOT NULL,
     room VARCHAR (255) NOT NULL ,
-    books_id INT ,
+    book_id INT ,
     user_id INT,
-    FOREIGN KEY (books_id) REFERENCES book(book_id),
-    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (book_id) REFERENCES books(id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
         
-    PRIMARY KEY (room_id)
+    PRIMARY KEY (id)
 );
-------------------------------
+-------------------------------------------------
 
-------------------------------
+---------------------reading---------------------
 CREATE TABLE reading (
-    reading_id INT AUTO_INCREMENT NOT NULL,
-    PRIMARY KEY (reading_id)
+    id INT AUTO_INCREMENT NOT NULL,
+    reading VARCHAR(255) NOT NULL,
     user_id INT ,
     book_id INT ,
-    FOREIGN KEY (user_id) REFERENCES book(user_id),
-    FOREIGN KEY (book_id) REFERENCES book(book_id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (book_id) REFERENCES books(id),
+    PRIMARY KEY (id)
 
 );
-------------------------------
-
-CREATE TABLE user_room (
-    user_room_id INT AUTO_INCREMENT NOT NULL,
-    user INT,
-    book INT,
-    FOREIGN KEY (user) REFERENCES user(role_id),
-    FOREIGN KEY (book) REFERENCES book(role_id),
-    PRIMARY KEY (user_room_id)
-    
-   
-
-);
+-------------------------------------------------

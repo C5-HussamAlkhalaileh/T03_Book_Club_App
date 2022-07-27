@@ -1,12 +1,26 @@
-const Connection = require("mysql2/typings/mysql/lib/Connection");
+const connection = require("../models/db");
 
+// add books
+const createBook = (req, res) => {
+  const { book_name, book_url } = req.body;
 
-const createBook=(req,res)=>{
+  const query = "INSERT INTO BOOKS (book_name,book_url) VALUES (?,?)";
+  const data = [book_name, book_url];
 
-    const {book_name,book_url}=req.body;
+  connection.query(query, data, (err, result) => {});
+};
 
-    const query="INSERT INTO BOOKS (book_name,book_url) VALUES (?,?)" ;
-    const data=[book_name,book_url];
+// delete books
 
-    Connection.query(query,data,(err,result)=>{})
-}
+const deleteBooksById = (req, res) => {
+  // delete books based the role_id and book id from params
+  const id = req.params.id;
+  const query = "DELETE FROM books WHERE ;";
+
+  connection.query(query, data, (err, result) => {
+    
+    //err
+    //catch
+    //
+  });
+};
