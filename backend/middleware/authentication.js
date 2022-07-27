@@ -1,4 +1,7 @@
-const jwt =("jsonwebtoken");
+const jwt =require("jsonwebtoken");
+const authentication=(req,res,next)=>{
+  
+}
 
 const authentication=(req,res,next)=>{
 
