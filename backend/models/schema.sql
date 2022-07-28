@@ -1,5 +1,5 @@
-USE booklibrary;
 
+USE BOOKSAPP ;
 -----------------roles--------------------
 CREATE TABLE roles (
     id INT AUTO_INCREMENT NOT NULL,
