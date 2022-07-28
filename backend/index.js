@@ -1,11 +1,12 @@
 const express = require("express");
 require("dotenv").config();
+const cors=require("cors");
 require("./models/db");
 
 
 
 
- const registerRouter=require("./route/register");
+const registerRouter=require("./route/register");
 const rolesRouter = require("./route/roles");
 
 
@@ -14,7 +15,7 @@ app.use(express.json())
 //register
 app.use("/register", registerRouter);
 
-app.use("roles",rolesRouter);
+app.use("/roles",rolesRouter);
 ////login
 //app.use("/login", loginRouter);
 ////books

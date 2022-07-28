@@ -1,26 +1,33 @@
-//const connection = require("../models/db");
+const connection = require("../models/db");
 
-//// add books
-//const createBook = (req, res) => {
-//  const { book_name, book_url } = req.body;
+const bcrypt = require("bcrypt");
+ 
+const createBooks = async (req, res) => {
+ 
+  const { book, bookimage} = req.body;
 
-//  const query = "INSERT INTO BOOKS (book_name,book_url) VALUES (?,?)";
-//  const data = [book_name, book_url];
+ 
 
-//  connection.query(query, data, (err, result) => {});
-//};
+  const query =
+    "INSERT INTO books (book,bookimage) VALUES (?,?)";
 
-//// delete books
+  const data = [book, bookimage];
 
-//const deleteBooksById = (req, res) => {
-//  // delete books based the role_id and book id from params
-//  const id = req.params.id;
-//  const query = "DELETE FROM books WHERE ;";
+  connection.query(query, data, (err, result) => {
+    if (err) {
+        
+      return res.json(err);
+      
+    }
+    res.status(201).json({
+      success: true,
+      result: result,
+      
+    });
+     
+  });
+};
 
-//  connection.query(query, data, (err, result) => {
-    
-//    //err
-//    //catch
-//    //
-//  });
-//};
+module.exports = {
+  register,
+};

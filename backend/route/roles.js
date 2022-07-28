@@ -1,9 +1,10 @@
 const express = require("express");
 
- const {createRole}=require('../controller/role')
+ const {createRole,createPermission}=require("../controller/role")
 
 const rolesRouter = express.Router();
 
-registerRouter.post("/", createRole);
+rolesRouter.post("/",createRole)
+rolesRouter.post("/:role_id/permission",createRole)
 
 module.exports = rolesRouter;
