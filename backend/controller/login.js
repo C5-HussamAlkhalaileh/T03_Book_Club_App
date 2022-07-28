@@ -1,7 +1,7 @@
-const express = require("expres");
+//const express = require("expres");
 
-const Login = (req, res) => {
-  const { email, password } = req.body;
+//const Login = (req, res) => {
+//  const { email, password } = req.body;
 
-  const data = [email, password];
-};
+//  const data = [email, password];
+//};

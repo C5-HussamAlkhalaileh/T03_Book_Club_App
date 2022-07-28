@@ -1,7 +1,7 @@
-const express =require("express");
+//const express =require("express");
 
-const {rooms}=require("../controller/rooms");
+//const {rooms}=require("../controller/rooms");
 
-const roomsRouter=express.Router();
+//const roomsRouter=express.Router();
 
-roomsRouter.express=roomsRouter;
+//roomsRouter.express=roomsRouter;

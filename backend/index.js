@@ -1,17 +1,26 @@
 const express = require("express");
-const loginRouter = require("./route/loginRouter");
-const Login = require("./route/loginRouter");
 require("dotenv").config();
-const app = express();
+require("./models/db");
 
+
+
+
+ const registerRouter=require("./route/register");
+const rolesRouter = require("./route/roles");
+
+
+const app = express();
+app.use(express.json())
 //register
-app.use("/register", register);
-//login
-app.use("/login", loginRouter);
-//books
-app.use("/books", books);
-//rooms
-app.use("/rooms", rooms);
+app.use("/register", registerRouter);
+
+app.use("roles",rolesRouter);
+////login
+//app.use("/login", loginRouter);
+////books
+//app.use("/books", books);
+////rooms
+//app.use("/rooms", rooms);
 
 const PORT = 5000;
 app.listen(PORT, () => {

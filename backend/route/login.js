@@ -1,9 +1,9 @@
-const express=require("express");
-const {login}=require("../controller/login");
+//const express=require("express");
+//const {login}=require("../controller/login");
 
-const loginRouter=express.Router();
+//const loginRouter=express.Router();
 
-// post request for login function 
-loginRouter.post("/",login);
+//// post request for login function 
+//loginRouter.post("/",login);
 
-module.exports = loginRouter;
+//module.exports = loginRouter;

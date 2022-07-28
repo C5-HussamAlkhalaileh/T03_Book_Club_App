@@ -1,8 +1,8 @@
-const express =require("express");
+//const express =require("express");
 
-const {books}=require("../controller/books");
+//const {books}=require("../controller/books");
 
-const booksRouter=express.Router();
-booksRouter.post("/",books);
+//const booksRouter=express.Router();
+//booksRouter.post("/",books);
 
-module.exports=booksRouter;
+//module.exports=booksRouter;

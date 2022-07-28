@@ -1,28 +1,33 @@
-const connection =require("../models/db");
+const connection = require("../models/db");
 
-const bcrypt=require("bcrypt");
-const saltRounds=10;
-const register=async(req,res)=>{
-    const{first_name,last_name,email,passUser}=req.body;
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+const register = async (req, res) => {
+  const role_id = req.params.role_id;
+  const { firstname, lastname, email, password } = req.body;
 
-    const encryptedPassword=await bcrypt.hash(passUser,saltRounds);
+  const encryptedPassword = await bcrypt.hash(password, saltRounds);
 
-    const query ="INSERT INTO USER (first_name,last_name,email,passwordUser) VALUES (?,?,?,?)"
+  const query =
+    "INSERT INTO USERS (firstname,lastname,email,password,role_id) VALUES (?,?,?,?,?)";
 
-    const data =[first_name,last_name,email,passwordUser]
+  const data = [firstname, lastname, email, encryptedPassword,role_id];
 
-    connection.query(query,data,(err,result)=>{
+  connection.query(query, data, (err, result) => {
+    if (err) {
+        
+      return res.json(err);
+      
+    }
+    res.status(201).json({
+      success: true,
+      result: result,
+      
+    });
+     
+  });
+};
 
-        if(err){
-            return res.json(err)
-        }
-        res.status(201).json({
-
-        })
-
-    })
-}
-
-module.exports={
-    createUser
-}
+module.exports = {
+  register,
+};
