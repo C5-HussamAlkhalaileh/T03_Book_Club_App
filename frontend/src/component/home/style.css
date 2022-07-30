@@ -1,3 +1,68 @@
-.container-lgcon{
-    background-color: rgba(138, 158, 24, 0.322);
+body{
+    background-color: rgb(66 31 39);;
+    
+}
+button{
+    background-color: rgb(207, 191, 182);
+    font-weight: bold;
+    border-radius: 25px;
+    
+ 
+}
+
+
+ul{
+    background-color: antiquewhite;
+}
+li{
+    font-weight: bold;
+}
+.nav-link {
+    color: #403232;
+
+}
+.nav-link :hover{
+    color: antiquewhite;
+
+} 
+
+a:hover{
+    background-color: #403232;  
+    
+     
+    
+}
+#username{
+    margin-left: 1000px;
+}
+
+.btn-primary :hover{
+    
+    background-color:  antiquewhite;
+}
+
+.btn-primary{
+    
+    margin-left: 75%;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    width: 100px;
+  
+}
+.input-login{
+    border-radius: 14px;
+    margin-top: 14px;
+    width: 75%;
+    padding: 10px;
+
+}
+.modal-content{
+
+    border-radius: 10px;
+    background-color: rgb(253, 253, 253);
+}
+.btn-curd{
+    padding:4px;
+    margin: 4px;
+    width: 100px;
 }
