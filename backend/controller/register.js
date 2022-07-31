@@ -15,7 +15,8 @@ const register = async (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-        
+        console.log("test test ");
+        console.log(result.data);
       return res.json(err);
       
     }

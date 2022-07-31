@@ -1,36 +1,38 @@
-//const connection =require("../models/db");
-//const createRooms=(req,res)=>{
+const connection =require("../models/db");
 
-//    const {room_name}=req.body;
+const createRooms=(req,res)=>{
 
-//    const query="INSERT INTO ROOMS (room_name) VALUES(?)"
+    const {room_name}=req.body;
 
-//    const data=[room_name];
+    const query="INSERT INTO ROOMS (room_name) VALUES(?)"
 
-//    connection.query(query,data,(err,result)=>{
-//        if (err) {
-//            return res.json(err)
-//        }
-//    })
-//}
+    const data=[room_name];
 
-//const deleteRooms=(req,res)=>{
+    connection.query(query,data,(err,result)=>{
+        if (err) {
+            return res.json(err)
+        }
+    })
+}
 
-//    const {room_name}=req.body;
+const deleteRooms=(req,res)=>{
 
-//    const query="DELETE INTO ROOMS (room_name) WHERE (?)"
+    const {room_name}=req.body;
 
-//    const data=[room_name];
+    const query="DELETE INTO ROOMS (room_name) WHERE (?)"
 
-//    connection.query(query,data,(err,result)=>{
-//        if (err) {
-//            return res.json(err)
-//        }
-//    })
-//}
+    const data=[room_name];
+
+    connection.query(query,data,(err,result)=>{
+        if (err) {
+            return res.json(err)
+        }
+    })
+}
 
 
-//module.exports={
-//    createRooms,
+module.exports={
+    createRooms,
+    deleteRooms
 
-//}
+}

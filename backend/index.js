@@ -9,6 +9,8 @@ require("./models/db");
 const registerRouter=require("./route/register");
 const rolesRouter = require("./route/roles");
 
+const createBooks=require("./route/books")
+
 
 const app = express();
 app.use(express.json())
@@ -16,6 +18,10 @@ app.use(express.json())
 app.use("/register", registerRouter);
 
 app.use("/roles",rolesRouter);
+
+app.use("/books",createBooks);
+
+
 ////login
 //app.use("/login", loginRouter);
 ////books

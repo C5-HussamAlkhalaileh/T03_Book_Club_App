@@ -29,5 +29,5 @@ const createBooks = async (req, res) => {
 };
 
 module.exports = {
-  register,
+    createBooks,
 };
